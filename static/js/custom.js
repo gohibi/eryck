@@ -4,6 +4,7 @@ AOS.init({
 	once: true
 });
 
+
 $(function(){
 
 	'use strict';

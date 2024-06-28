@@ -2,11 +2,35 @@
 <nav class="site-nav">
     <div class="container">
         <div class="site-navigation">
-            <a href="index.html" class="logo m-0">Tour <span class="text-primary">.</span></a>
+            <a href="{% url 'core:index' %}" class="logo m-0">Eryck <span class="text-primary">.</span></a>
 
             <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="{% url 'core:index' %}">Home</a></li>
+                {% if user.is_authenticated %}
                 <li class="has-children">
+                    <a href="#">Services</a>
+                    <ul class="dropdown">
+                        <li><a href="">Vendre mes kg</a></li>
+                        <li><a href="">Acheter des kg</a></li>
+                        
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <a href="#">Comptes</a>
+                    <ul class="dropdown">
+                        {% if user.is_staff or user.is_admin %}
+                        <li><a class="dropdown-item" href="{% url 'admin:index' %}">Tableau admin</a></li>
+                        {% endif %}
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a href="">Profil</a></li>
+                        <li><a href="{% url 'users:logout' %}">Deconnexion</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="text-decoration-none fs-4"><span class="text-capitalize mx-1">{{user.username}} </span>est connecté</a></li>
+                {% else %}
+                <!-- <li class="has-children">
                     <a href="#">Dropdown</a>
                     <ul class="dropdown">
                         <li><a href="elements.html">Elements</a></li>
@@ -22,18 +46,20 @@
                         <li><a href="#">Menu Three</a></li>
                     </ul>
                 </li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="services.html">Services</a></li> -->
                 <li><a href="about.html">About</a></li>
                 <li><a href="">Contact Us</a></li>
                 <li class="has-children">
                     <a href="#">Comptes</a>
                     <ul class="dropdown">
-                        <li><a href="">Connexion</a></li>
-                        <li><a href="#">Inscription</a></li>
+                        <li><a href="{% url 'users:login' %}">Connexion</a></li>
+                        <li><a href="{% url 'users:register' %}">Inscription</a></li>
                         
                     </ul>
                 </li>
             </ul>
+                {% endif %}
+              
 
             <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light" data-toggle="collapse" data-target="#main-navbar">
                 <span></span>

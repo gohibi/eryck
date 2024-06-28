@@ -76,8 +76,9 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-
-<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<!-- 
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script> -->
+<script src="{% static 'js/jquery-3.7.0.min.js' %}"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/owl.carousel.min.js' %}"></script>
@@ -87,8 +88,8 @@
 <script src="{% static 'js/aos.js' %}"></script>
 <script src="{% static 'js/moment.min.js' %}"></script>
 <script src="{% static 'js/daterangepicker.js' %}"></script>
-
 <script src="{% static 'js/typed.js' %}"></script>
+<script src="{% static 'js/notif-ajax.js' %}"></script>
 <script>
     $(function() {
         var slides = $('.slides'),
@@ -99,7 +100,7 @@
         })
 
         var typed = new Typed('.typed-words', {
-            strings: ["San Francisco."," Paris."," New Zealand.", " Maui.", " London."],
+            strings: ["Abidjan."," Douala."," Paris.", " Moscou.", " Kazan."],
             typeSpeed: 80,
             backSpeed: 80,
             backDelay: 4000,
