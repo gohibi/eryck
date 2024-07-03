@@ -1,0 +1,296 @@
+
+{% load static %}
+<div class="untree_co-section">
+    <div class="container">
+        <div class="row text-center justify-content-center mb-5">
+            <div class="col-lg-7"><h2 class="section-title text-center">Popular Destination</h2></div>
+        </div>
+
+        <div class="row d-flex">
+            {%  for item  in items %}
+            <div class="col-lg-3 col-md-6 col-sm-10">
+                <div class="package-card-delta">
+                    <div class="package-card-delta" style="cursor: pointer;">
+                        <div class=" card package-thumb">
+                            <div class="guide-card-beta">
+                                <div class="guide-image">
+                                    <a href="">
+                                        <img src="/static/images/plan.png" class="card-img-top" alt="" srcset="" style="aspect-ratio:3/2; object-fit:contain; padding:15px;border-radius:20px">
+                                    </a>
+                                    <p class="card-lavel me-2" style="font-size:10px; text-align:end; min-width:10px;border-radius:10px;padding:0px 6px">{{item.status }}</p>
+                                    <p class="px-4" style="margin-top:-40px;font-weight:700">{{item.title}}</p>
+                                    <p class="px-4" style="font-size:12px;font-style:italic;">{{item.description}}</p>
+                                    <span>
+                                        <div style="padding-left:20px; margin-top:-4px;">
+                                            <span class="style-module_starRatingWrap__q-lJC" style="direction:ltr;"></span>
+                                            <span class="style-module_simpleStarRating__nWUx react-simple-star-rating" aria-hidden="true"></span>
+                                        </div>
+                                    </span>
+                                    <div style="align-items:flex-start; display:flex">
+                                            <div class="dtrue">
+                                                <h3 class="p-card-title ptitle">{{item.price}} XOF par kg</h3>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="package-card-body p-2">
+                            <div class="row pb-2 icons_container"> 
+                                <div class="row">
+                                    <div class="col-2">
+                                        <img src="" alt="" srcset="">
+                                    </div>
+                                    <div class="col-3 icons_container icon facebook" style="padding-left:0px;">
+                                        {{item.travel.origin}}
+                                        <div class="tooltip">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <i class="bx bxs-right-arrow-right"></i>
+                                    </div>
+                                    <div class="col-2">
+                                        <img src="" alt="" srcset="" style="width: 100%;">
+                                    </div>
+                                    <div class="col-3 icons_container icon facebook" style="padding-left:0px;">
+                                        {{item.travel.destination}}
+                                        <div class="tooltip">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                            <div class="pb-0">
+                                <table class="col-lg-12 col-12 col-md-12 col-sm-12" style="font-size:12px; font-weight:600">
+                                    <tr>
+                                        <td style="font-size:12px"> {{item.travel.departure_date|date:"j/n/Y"}}</td>
+                                        <td class="travelCard" style="font-size: 12px;">
+                                            <i class="bi bi-calendar"></i>
+                                            {{item.travel.arrival_date|date:"j/n/Y"}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 11px; font-weight: 600;">Départ</td>
+                                        <td class="travelCard" style="font-size: 11px; font-weight: 600;">Arrivée</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 11px;"><i class="bi bi-stopwatch"></i> {{item.travel.departure_date|time:"H:i"}}</td>
+                                        <td class="travelCard" style="font-size: 11px;"><i class="bi bi-stopwatch"></i> {{item.travel.arrival_date|time:"H:i"}}</td>
+                                    </tr>
+                                </table>
+                                <hr style="color: rgb(243, 83, 18); height: 2px;">
+                            </div>
+                            <div class="pb-2">
+                                <table class="col-lg-12 col-12 col-md-12 col-sm-12" style="font-size: 12px; font-weight: 600;">
+                                    <tr>
+                                        <td style="color: rgb(255, 72, 56); opacity: 0.6;">Type de voyage:</td>
+                                        <td class="text-end" style="opacity: 0.8;">{{item.travel.type}}</td>
+                                    </tr>
+                                    <tr><td style="color: rgb(255, 72, 56); opacity: 0.6;">Kilo à vendre:</td>
+                                        <td class="text-end" style="opacity: 0.8;">{{item.capacity}} kg</td>
+                                    </tr>
+                                </table>
+                                <hr style="color: rgb(243, 83, 18); height: 2px;">
+                            </div>
+                            <div style="margin-top: -11px;">
+                                <table class="col-lg-12 col-12 col-md-12 col-sm-12" style="font-size: 14px; font-weight: 700;">
+                                    <tr>
+                                        <td class="text-decoration-underline">Publié par:</td>
+                                        <td class="text-end">
+                                            <i class="bi bi-person-fill"></i> 
+                                            <span style="color: rgb(30, 152, 215);">{{item.user.last_name}} {{item.user.first_name}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-calendar"></i>
+                                             <span>Publié  le:</span>
+                                        </td>
+                                        <td class="text-end">{{item.date_publication|date:"j/n/Y, H:i"}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-eye-fill"></i>
+                                            Vol N°:
+                                        </td>
+                                        <td class="text-end"> {{item.travel.flight_number}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="bi bi-eye-fill"></i>
+                                            Compagnie aerienne:
+                                        </td>
+                                        <td class="text-end">{{item.travel.airline}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="p-card-bottom">
+                                <div class="book-btn">
+                                    <a href="" class="btn btn-primary" >
+                                        Voir les détails du voyage 
+                                        <i class="bx bxs-right-arrow-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<style>
+    .dre{
+        
+        font-size: 9px; font-weight: 600; border-radius: 5px;
+    }
+    .package-card-delta {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 3px 5px 35px #ccc;
+        overflow: hidden;
+        position: relative;
+    }
+    .package-card-delta .package-thumb {
+        position: relative;
+    }
+    .guide-card-beta {
+        background: #fff;
+        border-radius: 0;
+        box-shadow: 3px 5px 35px #5644a91a;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+    }
+    .guide-card-beta .guide-image {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .package-card-delta .package-thumb .card-lavel {
+        background-color: #ff4838;
+        border-radius: 30px;
+        box-shadow: 3px 5px 35px #5644a91a;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        min-width: 170px;
+        opacity: 0;
+        padding: 9px 15px;
+        position: absolute;
+        right: 0;
+        text-transform: capitalize;
+        top: 10px;
+        transform: translateY(10px) scale(.5);
+        transition: all .5s ease-out 0s;
+        z-index: 9;
+    }
+    .style-module_starRatingWrap__q-lJC {
+        display: inline-block;
+        touch-action: none;
+    }
+    .style-module_simpleStarRating__nWUxf {
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        touch-action: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+    .dtrue{
+        background-color: rgb(243, 156, 18);
+        border-radius: 7px;
+        margin-left: 24px;
+        margin-top: 10px;
+        margin-bottom: 1px;
+        padding: 8px 20px;
+    }
+    
+    .ptitle {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgb(255, 255, 255);
+    }
+
+    .package-card-delta .package-card-body:before {
+        background: #ff4838;
+        bottom: 0;
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        transform: scale(0);
+        transition: all .5s ease-in-out;
+        width: 100%;
+        z-index: -1;
+    }
+    .icons_container .icon, .icons_container .icon span {
+        display: flex;
+        position: relative;
+        transition: .4s cubic-bezier(.68,-.55,.265,1.55);
+        z-index: 2;
+    }
+    
+    .icons_container .icon {
+        cursor: pointer;
+        text-align: center;
+    }
+    .icon .tooltip:before {
+        background: #fff;
+        bottom: -6px;
+        content: "";
+        height: 15px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%) rotate(45deg);
+        transition: .4s cubic-bezier(.68,-.55,.265,1.55);
+        width: 15px;
+    }
+    .icons_container .icon .tooltip {
+        background: #fff;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 500;
+        opacity: 0;
+        padding: 8px 14px;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transition: .4s cubic-bezier(.68,-.55,.265,1.55);
+        z-index: 1;
+    }
+    @media (max-width: 767px) {
+        .travelCard {
+            padding-left: 85px;
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .travelCard {
+            padding-left: 85px;
+        }
+    }
+    .travelCard {
+        padding-left: 60px;
+    }
+    .package-card-delta .package-card-body .p-card-bottom {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    
+</style>
